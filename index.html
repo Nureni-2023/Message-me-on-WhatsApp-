@@ -79,30 +79,30 @@
   </div>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+     document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-      // Collect form data
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
+  // Collect form data
+  const name = document.getElementById('name').value.trim();
+  const message = document.getElementById('message').value.trim();
 
-      if (name && email && message) {
-        // Format WhatsApp message
-        const whatsappNumber = "+2348137565810";
-        const whatsappMessage = `Hello, I am ${name}.%0AEmail: ${email}%0A%0A${message}`;
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-        
-        // Redirect to WhatsApp
-        window.open(whatsappURL, '_blank');
-        
-        // Show success message
-        document.getElementById('responseMessage').textContent = "Redirecting to WhatsApp...";
-      } else {
-        // Show error message
-        document.getElementById('responseMessage').textContent = "Please fill out all fields.";
-      }
-    });
+  if (name && message) {
+    // Format WhatsApp message
+    const whatsappNumber = "+2348137565810";
+    const whatsappMessage = `Hello, I am ${name}.%0A%0A${message}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Redirect to WhatsApp
+    window.open(whatsappURL, '_blank');
+    
+    // Show success message
+    document.getElementById('responseMessage').textContent = "Redirecting to WhatsApp...";
+  } else {
+    // Show error message
+    document.getElementById('responseMessage').textContent = "Please fill out all fields.";
+  }
+});
+    
   </script>
 </body>
 </html>
